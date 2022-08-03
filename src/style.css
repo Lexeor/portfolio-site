@@ -17,12 +17,21 @@ html {
 
   --clr-light: #fff;
   --clr-dark: #303030;
-  --clr-accent: #168fe0;
+  --clr-darker: #1b1b1b;
+  --clr-accent: #53F6C7;
   
   --fs-h1: 3rem;
   --fs-h2: 2.25rem;
   --fs-h3: 1.25rem;
   --fs-body: 1rem;
+  --fs-icon: 2rem;
+
+  --of-1: 1rem;
+  --of-2: 2.5rem;
+
+  --br-light: 5px;
+  --br-med: 8px;
+  --br-max: 12px;
 }
 
 @media (min-width: 800px) {
@@ -37,12 +46,20 @@ html {
 /* General styles */
 
 body {
-  background-color: var(--clr-light);
+  background-color: black;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100vw;
 }
 
 img {
-  display: block;
-  max-width: 100%;
+  width: 64px;
+  object-fit: contain;
 }
 
 strong { font-weight: var(--fw-bold) }
@@ -64,3 +81,35 @@ h3 {
 h1 { font-size: var(--fs-h1) }
 h2 { font-size: var(--fs-h2) }
 h3 { font-size: var(--fs-h3) }
+
+/* Buttons */
+
+.btn {
+  border: 0;
+  border-radius: var(--br-light);
+  background-color: transparent;
+  color: var(--clr-accent);
+  cursor: pointer;
+}
+
+/* Header */
+
+.header-container {
+  max-height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--clr-darker);
+  color: var(--clr-accent);
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 var(--of-1);
+}
+
+.header-logo {
+  object-fit: fill;
+}
+
+.header-menu i {
+  font-size: var(--fs-icon);
+}
