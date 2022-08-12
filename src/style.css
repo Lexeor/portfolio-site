@@ -19,6 +19,7 @@ html {
 
   --clr-light: #fff;
   --clr-text: #F1E9E0;
+  --clr-text-light: rgba(241, 233, 224, .5);
   --clr-dark: #272C34;
   --clr-darker: #20242A;
   --clr-medium: #2B3038;
@@ -61,6 +62,7 @@ body {
   /* justify-content: center; */
   align-items: center;
   width: 100vw;
+  max-width: 100%;
 }
 
 img {
@@ -95,10 +97,24 @@ h3 {
   line-height: 1.4;
 }
 
+h2.section-title {
+  margin-top: var(--of-2);
+}
+
 a {
   text-decoration: none;
   color: inherit;
   transition: color 500ms linear;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+section.contrast {
+  background-color: var(--clr-dark);
 }
 
 .footer a {
@@ -131,6 +147,26 @@ a {
   cursor: pointer;
 }
 
+.link-btn {
+  display: inline-block;
+  padding: .5em;
+  width: 100%;
+  border: var(--clr-text) 1px solid;
+  color: var(--clr-text);
+  border-radius: var(--br-med);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: .4em;
+  transition: border-color .3s ease-in-out;
+}
+
+.link-btn:hover {
+  color: var(--clr-accent);
+  border-color: var(--clr-accent);
+}
+
 /* Header */
 
 .container {
@@ -152,7 +188,7 @@ a {
 .container.about-me {
   background-color: var(--clr-dark);
   color: var(--clr-light);
-  padding: var(--of-2);
+  padding: var(--of-2) var(--of-1);
 }
 
 .container.about-me strong {
@@ -267,4 +303,69 @@ li:hover:after {
 .container.dark-row {
   background-color: var(--clr-darker);
   color: var(--clr-light);
+}
+
+/* Projects */
+
+.projects {
+  color: var(--clr-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--of-1);
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-item-container {
+  background-color: var(--clr-darker);
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--br-max);
+  margin-bottom: var(--of-1);
+  overflow: hidden;
+}
+
+.project-item-container img {
+  width: 250px;
+  min-height: 250px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: var(--of-2) var(--of-2);
+}
+
+.project-comps {
+  font-size: var(--fs-h3);
+  color: var(--clr-text-light);
+}
+
+.project-comps i.active {
+  color: var(--clr-accent);
+}
+
+.project-comps i.ri-smartphone-line {
+  font-size: smaller;
+}
+
+.project-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--of-1);
+  padding: var(--of-2);
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.project-controls i {
+  font-size: 2rem;
+}
+
+@media (max-width: 800px) {
+
 }
