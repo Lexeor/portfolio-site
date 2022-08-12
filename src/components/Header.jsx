@@ -1,11 +1,25 @@
 import React from 'react';
 import Logo from '../logo-console-green.png';
+import useHover from '../hooks/useHover';
+import {menuItems} from '../utils';
+import NavMenuItem from '../components/NavMenuItem';
 
 function Header() {
+  const [hovered, btnMenu] = useHover();
+
+  const NavMenuItemCollection = menuItems.map(item => {
+    return <NavMenuItem key={item.name} name={item.name} path={item.path} />
+  })
+
   return (
-    <div className='header-container'>
+    <div className='container header'>
         <img className='header-logo' src={Logo}></img>
-        <div className='header-menu'><button className="btn btn-menu"><i class="ri-menu-fill"></i></button></div>
+        <nav className='header-menu'>
+          <ul>
+            { NavMenuItemCollection }
+          </ul>
+          <button className={`btn btn-menu${hovered ? ' hovered' : ''}`} ref={btnMenu}><i className="ri-menu-fill"></i></button>
+        </nav>
     </div>
   )
 }

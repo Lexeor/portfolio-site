@@ -1,5 +1,5 @@
 * {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
 
@@ -12,17 +12,23 @@ html {
 /* Styles */
 
 :root {
+  --fw-light: 200;
   --fw-reg: 300;
+  --fw-medium: 500;
   --fw-bold: 900;
 
   --clr-light: #fff;
-  --clr-dark: #303030;
-  --clr-darker: #1b1b1b;
+  --clr-text: #F1E9E0;
+  --clr-dark: #272C34;
+  --clr-darker: #20242A;
+  --clr-medium: #2B3038;
+  --clr-gray: #272727;
   --clr-accent: #53F6C7;
+  --clr-accent-dark: #329c7e;
   
   --fs-h1: 3rem;
   --fs-h2: 2.25rem;
-  --fs-h3: 1.25rem;
+  --fs-h3: 1.75rem;
   --fs-body: 1rem;
   --fs-icon: 2rem;
 
@@ -46,7 +52,7 @@ html {
 /* General styles */
 
 body {
-  background-color: black;
+  background: var(--clr-darker);
 }
 
 .App {
@@ -58,7 +64,7 @@ body {
 }
 
 img {
-  width: 64px;
+  width: 90px;
   object-fit: contain;
 }
 
@@ -74,13 +80,46 @@ strong { font-weight: var(--fw-bold) }
 h1,
 h2,
 h3 {
-    line-height: 1;
-    margin: 0;
+  font-weight: var(--fw-light);
+  line-height: 1;
+  margin: 0;
 }
 
 h1 { font-size: var(--fs-h1) }
-h2 { font-size: var(--fs-h2) }
-h3 { font-size: var(--fs-h3) }
+h2 { 
+  font-size: var(--fs-h2);
+  line-height: 1.2;
+}
+h3 { 
+  font-size: var(--fs-h3);
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 500ms linear;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer span {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.footer span strong {
+  color: var(--clr-accent);
+}
+
+.icon-hovered {
+  color: var(--clr-accent);
+  transition: color 500ms linear;
+}
 
 /* Buttons */
 
@@ -94,22 +133,138 @@ h3 { font-size: var(--fs-h3) }
 
 /* Header */
 
-.header-container {
-  max-height: 64px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--clr-darker);
-  color: var(--clr-accent);
+.container {
   width: 100%;
   max-width: 1280px;
+  background-color: transparent;
   padding: 0 var(--of-1);
+} 
+
+.container.header {
+  color: var(--clr-accent);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 8rem;
+}
+
+.container.about-me {
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+  padding: var(--of-2);
+}
+
+.container.about-me strong {
+  display: block;
+  font-weight: var(--fw-medium);
 }
 
 .header-logo {
   object-fit: fill;
 }
 
+.header-menu {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2;
+  justify-content: flex-end;
+}
+
 .header-menu i {
   font-size: var(--fs-icon);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 2rem;
+}
+
+li {
+  display: inline-block;
+  position: relative;
+  font-weight: light;
+  font-size: 1.4rem;
+  opacity: .8;
+  transition: opacity .3s;
+}
+
+li:hover {
+  opacity: 1;
+}
+
+li:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--clr-accent);
+  transform-origin: bottom right;
+  transition: transform 0.4s ease-out;
+}
+
+li:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.btn-menu {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    display: none;
+  }
+
+  .btn-menu {
+    display: inline-block;
+  }
+}
+
+/* Footer */
+
+.footer {
+  color: var(--clr-text);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 8rem;
+  padding: 0 var(--of-1);
+}
+
+.socials-container {
+  font-size: 3rem;
+  display: flex;
+  flex-direction: row;
+  gap: .8em;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+/* About me */
+
+.container.aboutme {
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+}
+
+.container.dark-row {
+  background-color: var(--clr-darker);
+  color: var(--clr-light);
 }
