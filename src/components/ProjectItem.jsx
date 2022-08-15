@@ -19,7 +19,7 @@ function ProjectItem(props) {
             <div className="project-content">
                 <h3>{props.item.name}</h3>
                 {renderCompatibilities()}
-                {props.item.description}
+                <p>{props.item.description}</p>
             </div>
             <div className="project-controls">
                 {props.item.urlCode && <a href={props.item.urlCode} className="link-btn"><i className="ri-github-fill"></i>Code</a>}

@@ -27,12 +27,12 @@ function Footer() {
 
 
     return (
-        <div className="container footer">
+        <footer className="container footer">
             <div className="socials-container">
                 {socialItemsCollection}
             </div>
             <span>© <strong>2022</strong> Alexander Tarasov</span>
-        </div>
+        </footer>
     )
 }
 

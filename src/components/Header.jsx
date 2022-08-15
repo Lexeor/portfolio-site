@@ -3,6 +3,7 @@ import Logo from '../logo-console-green.png';
 import useHover from '../hooks/useHover';
 import {menuItems} from '../utils';
 import NavMenuItem from '../components/NavMenuItem';
+import LanguageSwitch from './LanguageSwitch';
 
 function Header() {
   const [hovered, btnMenu] = useHover();
@@ -18,6 +19,7 @@ function Header() {
           <ul>
             { NavMenuItemCollection }
           </ul>
+          <LanguageSwitch />
           <button className={`btn btn-menu${hovered ? ' hovered' : ''}`} ref={btnMenu}><i className="ri-menu-fill"></i></button>
         </nav>
     </div>
